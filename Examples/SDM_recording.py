@@ -62,7 +62,6 @@ deconv_config = {"deconv_type": "lin",          # Decovolution type. "lin" or "c
                  "deconv_ir_amp": 0
                  }
 
-# sofa_filename = 'Data/HRTF/sofa/Kemar_HRTF_sofa_shifted_Lebedev_N44.sofa'
 sofa_filename = '../Data/HRTF/sofa/HRIR_FULL2DEG.sofa'
 
 hrtf = sofa.Database.open(sofa_filename)  # Load sofa file into hrtf_data
@@ -78,8 +77,6 @@ mic_locs = utils.load_mic(mic_locs_filename)
 mic_locs_sph, mic_locs_sph_deg = utils.cart2sph(mic_locs)
 numMics = np.size(mic_locs)
 
-
-
 print('To record sweep type "rec", to load previous recording type "load"')
 rec_load = input()
 
@@ -92,6 +89,9 @@ align = True         # Align Direct sound to a given angle
 doa_filepath = '../Data/DOA/'
 brir_filepath = "../Data/BRIRs/"
 
+"""
+Load or record Impulse responses. 
+"""
 if rec_load == 'rec':  # Record sweep and extract impulse responses
     meas_dict, meas_name = capture.record(sweep, fs, device_name, input_idx, output_idx, deconv_config)
     ir_spatial = meas_dict['ir_spatial']
@@ -124,7 +124,6 @@ elif rec_load == 'load':     # Load a previously recorded ir
     ir_dict = {'ir_omni': ir_omni,
                'ir_spatial': ir_spatial}
     # Assign ir_spatial to the remaining columns of ir_tot
-    print(np.argmax(ir_spatial, axis=0))
 
     cut = False
     sdm_check = True
