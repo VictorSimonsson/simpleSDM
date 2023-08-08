@@ -1,0 +1,9 @@
+=====================================================
+Hardware list for simpleSDM
+=====================================================
+Mems microphones: Infineon EVAL_IM69D130_FLEXKIT
+PDM audio interface: miniDSP MCHStreamer
+
+Pressure Microphone: EarthWorks M23R
+IR audio interface: MOTU Ultralite MK4.
+    - Any

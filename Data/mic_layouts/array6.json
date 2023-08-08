@@ -1,0 +1,58 @@
+{
+  "Name": "A6D50",
+  "Description": "Config file for SDM array with 6 microphones at 50 mm diameter",
+  "MicrophoneLayout": {
+      "Name": "A6D50",
+      "Description": "Config file for SDM array with 6 microphones at 50 mm diameter",
+      "Microphones":[
+          {
+                "Azimuth": 0.0,
+                "Elevation": 0.0,
+                "Radius": 5.0,
+                "IsImaginary": false,
+                "Channel": 1,
+                "Gain": 1.0
+          },
+          {
+                "Azimuth": 90.0,
+                "Elevation": 45.0,
+                "Radius": 5.0,
+                "IsImaginary": false,
+                "Channel": 2,
+                "Gain": 1.0
+          },
+          {
+                "Azimuth": 90.0,
+                "Elevation": 315.0,
+                "Radius": 5.0,
+                "IsImaginary": false,
+                "Channel": 3,
+                "Gain": 1.0
+          },
+          {
+                "Azimuth": 180.0,
+                "Elevation": 0.0,
+                "Radius": 5.0,
+                "IsImaginary": false,
+                "Channel": 4,
+                "Gain": 1.0
+          },
+          {
+                "Azimuth": 270.0,
+                "Elevation": 45.0,
+                "Radius": 5.0,
+                "IsImaginary": false,
+                "Channel": 5,
+                "Gain": 1.0
+          },
+          {
+                "Azimuth": 270.0,
+                "Elevation": 315.0,
+                "Radius": 5.0,
+                "IsImaginary": false,
+                "Channel": 6,
+                "Gain": 1.0
+          }
+      ]
+  }
+}
