@@ -103,9 +103,6 @@ def sdm_par(IR, p):
             temp = np.reshape(temp, (win_len, n_cur_frames, num_mics), order='F')
         temp = np.transpose(temp, (0, 2, 1))
         temp = np.reshape(np.transpose(temp, (0, 2, 1)), (win_len, num_mics * n_cur_frames))
-        if n == 1:
-            t_dict = {'temp': temp}
-            savemat('t_dict.mat', t_dict)
 
         # Apply windowing
         par_samples = window[:, np.newaxis] * temp
@@ -121,9 +118,7 @@ def sdm_par(IR, p):
 
         # Cross-Correlation between microphone pairs
         Rtemp = np.real(ifft(P12, axis=0))
-        if n == 1:
-            R_dict = {'Rtemp': Rtemp}
-            savemat('r_dict.mat', R_dict)
+
         R = fftshift22(Rtemp)
 
         eps = np.finfo(float).eps  # Get machine epsilon

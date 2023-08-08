@@ -78,6 +78,8 @@ mic_locs = utils.load_mic(mic_locs_filename)
 mic_locs_sph, mic_locs_sph_deg = utils.cart2sph(mic_locs)
 numMics = np.size(mic_locs)
 
+
+
 print('To record sweep type "rec", to load previous recording type "load"')
 rec_load = input()
 
@@ -87,6 +89,7 @@ listen = True        # Listen Directly to the auralized signal
 smooth_doa = True    # Apply DOA smoothing
 align = True         # Align Direct sound to a given angle
 
+doa_filepath = 'Data/DOA/'
 brir_filepath = "Data/BRIRs/"
 
 if rec_load == 'rec':  # Record sweep and extract impulse responses
@@ -121,7 +124,6 @@ elif rec_load == 'load':     # Load a previously recorded ir
     ir_dict = {'ir_omni': ir_omni,
                'ir_spatial': ir_spatial}
     # Assign ir_spatial to the remaining columns of ir_tot
-    savemat('Data/IRs/ali_'+ir_filename_to_load+'.mat', ir_dict)
     print(np.argmax(ir_spatial, axis=0))
 
     cut = False
@@ -132,7 +134,6 @@ elif rec_load == 'load':     # Load a previously recorded ir
     ir_dict = {'ir_omni': ir_omni,
                'ir_spatial': ir_spatial,
                'fs': fs}
-    savemat('ir_far_dict.mat', ir_dict)
 
 else:
     print("Input name of DOAs to import: ")
@@ -204,7 +205,7 @@ if sdm_check:
                 'mic_locs': mic_locs,
                 'numMics': numMics
                 }
-    savemat(f'DOA_{ir_filename_to_load}.mat', doa_dict)
+    savemat(f'Data/DOA/DOA_{ir_filename_to_load}.mat', doa_dict)
 
 if render_brirs:
     if rotate:
