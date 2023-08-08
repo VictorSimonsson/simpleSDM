@@ -310,32 +310,7 @@ if listen:
 
         wavfile.write(f'Data/BinSignals/Drums_win{window_length}_smooth{smooth_order}.wav', fs, binaural)
 
-        plot.plot_spectrogram(binaural[:, 0], fs, title='brir1')
-        plot.plot_spectrogram(binaural[:, 1], fs, title='brir2')
-
-        # convolve left and right channels separately
-        if ir_filename_to_load == 'sdm_occ':
-            kemar = loadmat('Data/kemar_irs/kemar_occ/KEMAR_pos_0000_az_000.mat')
-            kemar_ir = kemar['ir']
-            k_l = kemar_ir[:, 0]
-            k_r = kemar_ir[:, 1]
-        else:
-            kemar = loadmat('Data/kemar_irs/kemar_no_occ/KEMAR_pos_0000_az_000.mat')
-            kemar_ir = kemar['ir']
-            k_l = kemar_ir[:, 0]
-            k_r = kemar_ir[:, 1]
-
-        ref_l = sig.convolve(audio_in, k_l, mode='full', method='auto')
-        ref_r = sig.convolve(audio_in, k_r, mode='full', method='auto')
-
-        kemar = np.column_stack((ref_l, ref_r))
-
         dev_name = 'Externa hörlurar'
-        print("Playing audio signal...")
-        sd.play(kemar, fs, device=dev_name)
-        sd.wait()
-        print("Done")
-
         print("Playing binaural signal...")
         sd.play(binaural, fs, device=dev_name)
         sd.wait()

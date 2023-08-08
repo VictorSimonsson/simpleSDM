@@ -18,6 +18,9 @@ def sdm_par(IR, p):
     Spatial Decomposition Method, implemented as parallel processing
     Returns locations (or direction of arrival) at each time step of the IR.
 
+    Adapted from MATLAB's SDM Toolbox: https://se.mathworks.com/matlabcentral/fileexchange/56663-sdm-toolbox
+    Original author: Sakari Tervo
+
     :param IR: A matrix of measured impulse responses from a microphone array [N numberOfMics]
     :param p: Parameters can be given as a dict:
               Radius : float : Radius of the microphones [m]
