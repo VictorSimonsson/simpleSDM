@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.py
+sdm/__init__.py
+sdm/analysis.py
+sdm/capture.py
+sdm/plot.py
+sdm/utils.py
+simpleSDM.egg-info/PKG-INFO
+simpleSDM.egg-info/SOURCES.txt
+simpleSDM.egg-info/dependency_links.txt
+simpleSDM.egg-info/requires.txt
+simpleSDM.egg-info/top_level.txt
